@@ -1,0 +1,17 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 0.1
+description: My module
+author: Your Name
+license: Specify your license
+copyright: Copyright (c) 2010 by Your Company
+
+
+# these should not be edited
+name: camerastream
+moduleid: com.mandarinmedien.module.camerastream
+guid: 6e975770-326b-49cb-b0a8-4dbdb1f602ca
+platform: android
+minsdk: 1.5.1
