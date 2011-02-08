@@ -14,12 +14,8 @@ import org.appcelerator.kroll.annotations.Kroll;
 import org.appcelerator.titanium.TiContext;
 import org.appcelerator.titanium.util.Log;
 import org.appcelerator.titanium.util.TiConfig;
-import org.appcelerator.titanium.view.TiUIView;
 
-import android.app.Activity;
-import android.graphics.PixelFormat;
 import android.hardware.Camera;
-import android.hardware.Camera.Parameters;
 
 // This proxy can be created by calling Camerastream.createExample({message: "hello world"})
 @Kroll.proxy(creatableInModule=CamerastreamModule.class)
@@ -32,9 +28,13 @@ public class CamerastreamModuleProxy extends KrollProxy
 	private static final String LCAT = "ExampleProxy";
 	private static final boolean DBG = TiConfig.LOGD;
 	
+
+	
 	// Constructor
 	public CamerastreamModuleProxy(TiContext tiContext) {
 		super(tiContext);
+
+		
 	}
 	
 	// Handle creation options

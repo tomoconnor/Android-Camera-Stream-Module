@@ -7,7 +7,7 @@ import java.io.ByteArrayOutputStream;
 
 import org.appcelerator.titanium.proxy.TiViewProxy;
 import org.appcelerator.titanium.view.TiUIView;
- 
+
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Bitmap.CompressFormat;
@@ -19,7 +19,7 @@ import android.widget.ImageView;
  */
 public class AndroidCameraPreview extends TiUIView {
 
-	private ImageView myImage;
+	public ImageView myImage;
 	
 	public AndroidCameraPreview(TiViewProxy proxy) {
 		super(proxy);
