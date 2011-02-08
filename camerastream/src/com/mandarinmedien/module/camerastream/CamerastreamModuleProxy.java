@@ -11,21 +11,29 @@ package com.mandarinmedien.module.camerastream;
 import org.appcelerator.kroll.KrollDict;
 import org.appcelerator.kroll.KrollProxy;
 import org.appcelerator.kroll.annotations.Kroll;
-
 import org.appcelerator.titanium.TiContext;
 import org.appcelerator.titanium.util.Log;
 import org.appcelerator.titanium.util.TiConfig;
+import org.appcelerator.titanium.view.TiUIView;
+
+import android.app.Activity;
+import android.graphics.PixelFormat;
+import android.hardware.Camera;
+import android.hardware.Camera.Parameters;
 
 // This proxy can be created by calling Camerastream.createExample({message: "hello world"})
 @Kroll.proxy(creatableInModule=CamerastreamModule.class)
-public class ExampleProxy extends KrollProxy
+public class CamerastreamModuleProxy extends KrollProxy
 {
+	private Camera _Camera;
+	public byte[] byteImage;
+	
 	// Standard Debugging variables
 	private static final String LCAT = "ExampleProxy";
 	private static final boolean DBG = TiConfig.LOGD;
 	
 	// Constructor
-	public ExampleProxy(TiContext tiContext) {
+	public CamerastreamModuleProxy(TiContext tiContext) {
 		super(tiContext);
 	}
 	
@@ -39,9 +47,5 @@ public class ExampleProxy extends KrollProxy
 		}
 	}
 	
-	// Methods
-	@Kroll.method
-	public void printMessage(String message) {
-		Log.d(LCAT, "printing message: " + message);
-	}
+
 }

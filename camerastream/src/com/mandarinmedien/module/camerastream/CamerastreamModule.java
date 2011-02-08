@@ -8,16 +8,15 @@
  */
 package com.mandarinmedien.module.camerastream;
 
-import java.sql.Blob;
-
 import org.appcelerator.kroll.KrollModule;
 import org.appcelerator.kroll.annotations.Kroll;
-
 import org.appcelerator.titanium.TiContext;
-import org.appcelerator.titanium.util.Log;
 import org.appcelerator.titanium.util.TiConfig;
 
+import android.app.Activity;
+import android.content.ContextWrapper;
 import android.hardware.Camera;
+import android.view.SurfaceView;
 
 @Kroll.module(name="Camerastream", id="com.mandarinmedien.module.camerastream")
 public class CamerastreamModule extends KrollModule
@@ -26,50 +25,13 @@ public class CamerastreamModule extends KrollModule
 	// Standard Debugging variables
 	private static final String LCAT = "CamerastreamModule";
 	private static final boolean DBG = TiConfig.LOGD;
-	private Camera _Camera;
-	
-	public byte[] byteImage;
+
 	// You can define constants with @Kroll.constant, for example:
 	// @Kroll.constant public static final String EXTERNAL_NAME = value;
 	
 	public CamerastreamModule(TiContext tiContext) {
+
+		
 		super(tiContext);
 	}
-
-	
-	@Kroll.method
-	public void startCameraStream()
-	{
-		_Camera = Camera.open();
-		_Camera.setPreviewCallback(new Camera.PreviewCallback() 
-		{ 
-			@Override 
-			public void onPreviewFrame(byte[] data, Camera camera) 
-			{ 
-				byteImage = data;
-			} 
-		});
-		
-		_Camera.startPreview();
-		
-	};
-	
-	@Kroll.method
-	public void stopCameraStream()
-	{
-		_Camera.stopPreview();
-		_Camera.release();
-	};
-	
-	@Kroll.getProperty @Kroll.method
-    public byte[] getByteImage()
-	{
-            return byteImage;
-    }
-
-	@Kroll.setProperty @Kroll.method
-    public void setByteImage(byte[] aByteImage) 
-	 {
-		byteImage = aByteImage;
-    }	
 }
